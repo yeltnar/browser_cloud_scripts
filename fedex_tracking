@@ -16,16 +16,24 @@
     makeSureOnTrackingPage();
 
     console.log("hi drew");
-
+    
     // gets last(?) element with search text as whole content
-   (await getElement(search_text)).click();
+    (await getElement(search_text)).click();
+    
+    const search_txt = "12:15 pm";
+    await getElement(search_txt)
+    
+    const txt = document.querySelector(".firstElementSection > ul:nth-child(1) > li:nth-child(1) > div:nth-child(2) > span:nth-child(1)").innerText;
+    const should_alert = txt !== search_txt;
+    
+    if(should_alert){
+        notify();
+    }else{
+        window.location.href = "https://www.fedex.com/apps/fedextracking";
+    }
+
     setTimeout(()=>{
-        const txt = document.querySelector(".firstElementSection > ul:nth-child(1) > li:nth-child(1) > div:nth-child(2) > span:nth-child(1)").innerText;
-        const search_txt = "12:15 pm";
-        const should_alert = txt !== search_txt;
-        if(should_alert){
-            notify();
-        }else{
+        if(!should_alert){
             window.location.href = "https://www.fedex.com/apps/fedextracking";
         }
     }, 30000);
