@@ -10,7 +10,7 @@
 
 //will currently run all the files at once
 const obj_files_to_run = {
-    "https://70.120.122.87:3333/cloud_scripts/run":
+    "https://70.120.122.87:3333/cloud_scripts/run":[
         "https://raw.githubusercontent.com/yeltnar/browser_cloud_scripts/master/fedex_tracking",
         //"https://70.120.122.87:3333/cloud_scripts/t.txt"
     ]
