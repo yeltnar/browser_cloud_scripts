@@ -24,7 +24,6 @@
         const search_txt = "12:14 pm";
         const should_alert = txt !== search_txt;
         if(should_alert){
-            alert(`${txt}!==${should_alert}`);
             notify();
         }else{
             window.location.href = "https://www.fedex.com/apps/fedextracking";
