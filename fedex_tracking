@@ -20,7 +20,7 @@
     // gets last(?) element with search text as whole content
    (await getElement(search_text)).click();
     setTimeout(()=>{
-        const alert = document.querySelector(".firstElementSection > ul:nth-child(1) > li:nth-child(1) > div:nth-child(2) > span:nth-child(1)").innerText !== "9:47 pm";
+        const alert = document.querySelector(".firstElementSection > ul:nth-child(1) > li:nth-child(1) > div:nth-child(2) > span:nth-child(1)").innerText !== "7:46 am";
         if(alert){
             notify();
         }else{
