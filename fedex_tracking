@@ -21,7 +21,7 @@
    (await getElement(search_text)).click();
     setTimeout(()=>{
         const txt = document.querySelector(".firstElementSection > ul:nth-child(1) > li:nth-child(1) > div:nth-child(2) > span:nth-child(1)").innerText;
-        const search_txt = "12:14 pm";
+        const search_txt = "12:15 pm";
         const should_alert = txt !== search_txt;
         if(should_alert){
             notify();
