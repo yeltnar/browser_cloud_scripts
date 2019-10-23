@@ -37,12 +37,7 @@ function notify(){
     const text = "change";
     const token = "drew_key_here";
     const person_id = "drew";
-    const url = `https://node.andbrant.com/join/api?
-          person_id=${person_id}
-          &token=${token}&
-          deviceId=group.android&
-          title=${title}&
-          text=${text}`;
+    const url = `https://node.andbrant.com/join/api?person_id=${person_id}&token=${token}&deviceId=group.android&title=${title}&text=${text}`;
     //window.open(url);
     fetch(url);
     alert(url);
