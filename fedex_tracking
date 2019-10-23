@@ -1,0 +1,90 @@
+// ==UserScript==
+// @name         New Userscript
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        0843880548
+// @match        https://www.fedex.com/*
+// @grant        none
+// ==/UserScript==
+
+(async function() {
+    'use strict';
+    const search_text="450180926868";
+
+    makeSureOnTrackingPage();
+
+    console.log("hi drew");
+
+    // gets last(?) element with search text as whole content
+   (await getElement(search_text)).click();
+    setTimeout(()=>{
+        const alert = document.querySelector(".firstElementSection > ul:nth-child(1) > li:nth-child(1) > div:nth-child(2) > span:nth-child(1)").innerText !== "9:47 pm";
+        if(alert){
+            notify();
+        }else{
+            window.location.href = "https://www.fedex.com/apps/fedextracking";
+        }
+    }, 30000);
+    if( alert ){}
+})();
+
+function notify(){
+    const title = "Phone Tracking"
+    const text = "change";
+    const token = "drew_key_here";
+    const person_id = "drew";
+    const url = `https://node.andbrant.com/join/api?
+          person_id=${person_id}
+          &token=${token}&
+          deviceId=group.android&
+          title=${title}&
+          text=${text}`;
+    window.open(url);
+    fetch(url);
+    alert(url);
+}
+
+function makeSureOnTrackingPage(){
+
+    let regex = /https:\/\/www.fedex.com\/apps\/fedextracking/;
+
+    if( !regex.test(window.location.href)  ){
+        window.location.href = "https://www.fedex.com/apps/fedextracking";
+    }
+}
+
+function getElement(search_text){
+    return new Promise((resolve,reject)=>{
+        let e = null
+        function doIt(){
+            e = diveElement( document.querySelector("body") );
+            if(e===null){
+                console.log("doIt is null");
+                setTimeout(doIt,5000)
+            }else{
+                console.log(e);
+                resolve(e);
+            }
+        }
+        doIt();
+    });
+}
+
+function diveElement( element, search_text="450180926868" ){
+
+    if(element.innerHTML === element.innerText){
+        if( element.innerText === search_text ){
+            return element;
+        }else{
+            return null;
+        }
+    }else{
+        let to_return = null;
+        [...element.children].forEach((cur)=>{
+            to_return = diveElement(cur) || to_return;
+        });
+        return to_return;
+    }
+}
