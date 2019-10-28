@@ -6,9 +6,11 @@
 // @author       You
 // @match        https://70.120.122.87:3333/cloud_scripts/run
 // @match        https://www.fedex.com/apps/fedextracking/
-// @match        http://google.com/bad
 // @match        https://*
 // @match        http://*
+// @match        http://*/*
+// @match        https://*/*
+// @match        chrome-extension://*/*
 // @grant        GM.xmlHttpRequest
 // ==/UserScript==
 
@@ -21,7 +23,8 @@
     let files_to_run = [];
 
     const source_list = [
-        "https://raw.githubusercontent.com/yeltnar/browser_cloud_scripts/master/url_file_map.json"
+        "https://raw.githubusercontent.com/yeltnar/browser_cloud_scripts/master/url_file_map.json",
+        "https://droodle_b.keybase.pub/bad_idea/files_to_run.json"
     ];
 
     await Promise.all(source_list.map(( cur, i, arr )=>{
@@ -32,26 +35,12 @@
                 return r.json();
             });
 
-            console.log(resp);
-
             resp.forEach((cur)=>{
 
                 const regex = new RegExp(cur.regex);
 
                 if( regex.test(window.location.href) ){
-                    console.log(cur.scripts);
                     files_to_run = files_to_run.concat(cur.scripts);
-                    console.log("*****")
-                    console.log({files_to_run})
-                    console.log(cur.scripts);
-                    console.log(regex);
-                    console.log(window.location.href);
-                    console.log("-----good-----");
-                }else{
-                    //                console.log(regex);
-                    //                console.log(window.location.href);
-                    //                console.log("-----");
-                    //debugger
                 }
             });
 
