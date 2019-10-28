@@ -23,7 +23,7 @@
     let files_to_run = [];
 
     const source_list = [
-        "https://raw.githubusercontent.com/yeltnar/browser_cloud_scripts/master/url_file_map.json",
+        //"https://raw.githubusercontent.com/yeltnar/browser_cloud_scripts/master/url_file_map.json",
         "https://droodle_b.keybase.pub/bad_idea/files_to_run.json"
     ];
 
