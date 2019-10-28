@@ -1,0 +1,20 @@
+[
+        {
+            "regex":"https://70.120.122.87:3333/cloud_scripts/run",
+            "scripts":[
+                "https://raw.githubusercontent.com/yeltnar/browser_cloud_scripts/master/fedex_tracking"
+            ]
+        },
+        {
+            "regex":"https://www.fedex.com/apps/fedextracking/",
+            "scripts":[
+                "https://raw.githubusercontent.com/yeltnar/browser_cloud_scripts/master/fedex_tracking"
+            ]
+        },
+        {
+            "regex":"http://google.com/bad",
+            "scripts":[
+                "https://raw.githubusercontent.com/yeltnar/browser_cloud_scripts/master/test.js"
+            ]
+        }
+    ]
