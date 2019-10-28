@@ -11,7 +11,7 @@
 
 (async function() {
     'use strict';
-    const search_text="450180926868";
+    const search_text="Google Llc";
 
     makeSureOnTrackingPage();
 
