@@ -6,6 +6,7 @@
 // @author       You
 // @match        https://70.120.122.87:3333/cloud_scripts/run
 // @match        https://www.fedex.com/apps/fedextracking/
+// @match        http://google.com/bad
 // @match        https://*
 // @match        http://*
 // @grant        GM.xmlHttpRequest
